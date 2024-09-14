@@ -1,4 +1,4 @@
-**NAV-TRACE
+**NAV-TRACE**
 
 
 Nav-Trace is an innovative system designed to efficiently compute and display the shortest path between two geographical points
@@ -20,8 +20,9 @@ data with custom optimization algorithms to ensure the most effective pathfindin
 
 
 To run:
-git clone https://github.com/duvarakeshss/Nav-Trace
+
+**git clone https://github.com/duvarakeshss/Nav-Trace**
 
 #Add your own googlemap api key in frontend.py
 
-streamlit run frontend.py
+run command : **streamlit run frontend.py**
