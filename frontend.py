@@ -122,7 +122,7 @@ if st.session_state.start_clicked:
         else:
             st.write("Please enter both start and destination locations.")
 else:
-    st.markdown('<p class="big-font">NAVTRACE!</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">NAV TRACE!</p>', unsafe_allow_html=True)
     st.markdown('<p class="quote">FIND YOUR SHORTEST PATH</p>', unsafe_allow_html=True)
 
     if st.button("Start"):
