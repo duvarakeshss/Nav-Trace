@@ -2,11 +2,11 @@ import googlemaps
 import heapq
 import math
 
-
-api_key = ''
+# Initialize the Google Maps client
+api_key = 'AIzaSyAyHmK4lf7nriSYK_WzZvhNb0IJdUcohwg'
 gmaps = googlemaps.Client(key=api_key)
 
-
+# Helper function to calculate Euclidean distance (Haversine Formula) as the heuristic for A*
 def haversine_distance(lat1, lon1, lat2, lon2):
     R = 6371.0  # Radius of the Earth in kilometers
     lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
@@ -17,7 +17,7 @@ def haversine_distance(lat1, lon1, lat2, lon2):
     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
     return R * c
 
-
+# A* algorithm implementation
 def a_star(graph, start, goal):
     # Priority queue (min-heap) to store (cost, node) tuples
     queue = [(0, start)]
