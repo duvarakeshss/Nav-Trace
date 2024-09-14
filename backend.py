@@ -1,7 +1,6 @@
 import googlemaps
 import heapq
 import math
-from urllib.parse import urlencode
 
 class ShortestPath:
     
@@ -102,10 +101,14 @@ class ShortestPath:
                 print("No path found.")
 
             # Generate a Google Maps link
-            self.generate_google_maps_link()
+            map_url = self.generate_google_maps_link()
+
+            # Return the Google Maps link
+            return map_url
 
         else:
             print("No directions found.")
+            return None
 
     # Method to generate Google Maps link
     def generate_google_maps_link(self):
@@ -128,14 +131,4 @@ class ShortestPath:
         if waypoints:
             map_url += f"&waypoints={waypoints_str}"
 
-        print("Google Maps Link:", map_url)
-
-
-# API Key 
-api_key = "AIzaSyAyHmK4lf7nriSYK_WzZvhNb0IJdUcohwg"
-
-source = input("Enter the Starting Point: ")
-destination = input("Enter the Destination: ")
-
-path_finder = ShortestPath(api_key, source, destination)
-path_finder.get_directions_and_find_shortest_path()
+        return map_url
