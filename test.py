@@ -3,7 +3,7 @@ import heapq
 import math
 
 # Initialize the Google Maps client
-api_key = 'AIzaSyAyHmK4lf7nriSYK_WzZvhNb0IJdUcohwg'
+api_key = ''
 gmaps = googlemaps.Client(key=api_key)
 
 # Helper function to calculate Euclidean distance (Haversine Formula) as the heuristic for A*
