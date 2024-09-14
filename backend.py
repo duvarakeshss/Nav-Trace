@@ -132,7 +132,7 @@ class ShortestPath:
 
 
 # API Key 
-api_key = ""
+api_key = "AIzaSyAyHmK4lf7nriSYK_WzZvhNb0IJdUcohwg"
 
 source = input("Enter the Starting Point: ")
 destination = input("Enter the Destination: ")
