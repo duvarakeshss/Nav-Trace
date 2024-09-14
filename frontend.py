@@ -4,7 +4,7 @@ from backend import ShortestPath
 import googlemaps
 
 # API Key
-#api_key = 'AIzaSyAyHmK4lf7nriSYK_WzZvhNb0IJdUcohwg'
+#api_key = ''
 gmaps = googlemaps.Client(key=api_key)
 
 def get_base64_image(file_path):
