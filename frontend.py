@@ -90,7 +90,7 @@ st.markdown(
 )
 
 if st.session_state.start_clicked:
-    st.markdown('<h1 style="text-align:center;color:white;">Location Input</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="text-align:center;color:white;">Location</h1>', unsafe_allow_html=True)
 
     start_location = st.text_input("Enter Starting Location:", "", key="start_location", placeholder="Starting Location")
     destination_location = st.text_input("Enter Destination Location:", "", key="destination_location", placeholder="Destination Location")
