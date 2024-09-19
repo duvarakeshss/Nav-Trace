@@ -104,7 +104,7 @@ class ShortestPath:
             map_url = self.generate_google_maps_link()
 
             # Return the Google Maps link
-            return map_url
+            return map_url,shortest_path
 
         else:
             print("No directions found.")

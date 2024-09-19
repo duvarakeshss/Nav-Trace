@@ -4,7 +4,7 @@ from backend import ShortestPath
 import googlemaps
 
 # API Key
-#api_key = ''
+api_key = ''
 gmaps = googlemaps.Client(key=api_key)
 
 def get_base64_image(file_path):
@@ -90,7 +90,15 @@ st.markdown(
 )
 
 if st.session_state.start_clicked:
-    st.markdown('<h1 style="text-align:center;color:white;">Location</h1>', unsafe_allow_html=True)
+    img_path = 'static/bg-2.jpg'
+    base64_image = get_base64_image(img_path)
+    
+    st.markdown(f"""<style>
+                .stApp {{
+            background-image: url("data:image/jpg;base64,{base64_image}");
+            background-size: cover;
+        }}
+                </style><h1 style="text-align:center;color:white;">Location</h1>""", unsafe_allow_html=True)
 
     start_location = st.text_input("Enter Starting Location:", "", key="start_location", placeholder="Starting Location")
     destination_location = st.text_input("Enter Destination Location:", "", key="destination_location", placeholder="Destination Location")
@@ -111,10 +119,13 @@ if st.session_state.start_clicked:
 
             if start_coords and destination_coords:
                 path_finder = ShortestPath(api_key, start_coords, destination_coords)
-                map_url = path_finder.get_directions_and_find_shortest_path()
+                map_url,path = path_finder.get_directions_and_find_shortest_path()
                 
                 if map_url:
-                    st.markdown(f'<meta http-equiv="refresh" content="0; url={map_url}" />', unsafe_allow_html=True)
+                    st.markdown('<h1 style="text-align:center;color:white;">Coordinates</h1>', unsafe_allow_html=True)
+                    st.write(path)
+                    st.markdown(f'<a href="{map_url}" target="_blank" style="font-size:30px;">Click here to navigate</a>', unsafe_allow_html=True)
+                        
                 else:
                     st.write("No path found.")
             else:
@@ -122,7 +133,7 @@ if st.session_state.start_clicked:
         else:
             st.write("Please enter both start and destination locations.")
 else:
-    st.markdown('<p class="big-font">NAV TRACE!</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">NAV TRACE</p>', unsafe_allow_html=True)
     st.markdown('<p class="quote">FIND YOUR SHORTEST PATH</p>', unsafe_allow_html=True)
 
     if st.button("Start"):
