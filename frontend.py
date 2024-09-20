@@ -2,10 +2,16 @@ import streamlit as st
 import base64
 from backend import ShortestPath  
 import googlemaps
+from dotenv import load_dotenv
+import os
 
-# API Key
-api_key = ''
-gmaps = googlemaps.Client(key=api_key)
+def configure():
+    load_dotenv()
+    
+configure()
+
+
+gmaps = googlemaps.Client(key=os.getenv('api_key'))
 
 def get_base64_image(file_path):
     with open(file_path, "rb") as f:
