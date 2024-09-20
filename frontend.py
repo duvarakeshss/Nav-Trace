@@ -124,7 +124,7 @@ if st.session_state.start_clicked:
             destination_coords = get_coordinates(destination_location)
 
             if start_coords and destination_coords:
-                path_finder = ShortestPath(api_key, start_coords, destination_coords)
+                path_finder = ShortestPath(os.getenv('api_key'), start_coords, destination_coords)
                 map_url,path = path_finder.get_directions_and_find_shortest_path()
                 
                 if map_url:
